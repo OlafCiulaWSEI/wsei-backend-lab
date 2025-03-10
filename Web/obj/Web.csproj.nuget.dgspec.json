@@ -236,24 +236,12 @@
           "C:\\Users\\fanta\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0",
           "net9.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\fanta\\Desktop\\wsei-backend-lab-lab-01\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "C:\\Users\\fanta\\Desktop\\wsei-backend-lab-lab-01\\ApplicationCore\\ApplicationCore.csproj"
-              },
-              "C:\\Users\\fanta\\Desktop\\wsei-backend-lab-lab-01\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\fanta\\Desktop\\wsei-backend-lab-lab-01\\Infrastructure\\Infrastructure.csproj"
-              }
-            }
-          },
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
@@ -279,53 +267,6 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.4, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Users\\fanta\\.dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
-        },
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
