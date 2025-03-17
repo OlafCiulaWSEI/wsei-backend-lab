@@ -11,6 +11,7 @@ public class QuizUserService: IQuizUserService
     private readonly IGenericRepository<QuizItem, int> itemRepository;
     private readonly IGenericRepository<QuizItemUserAnswer, string> answerRepository;
 
+
     public QuizUserService(IGenericRepository<Quiz, int> quizRepository, IGenericRepository<QuizItemUserAnswer, string> answerRepository, IGenericRepository<QuizItem, int> itemRepository)
     {
         this.quizRepository = quizRepository;
@@ -43,5 +44,25 @@ public class QuizUserService: IQuizUserService
         //     .Where(x => x. UserId == userId)
         //     .ToList();
         return answerRepository.FindBySpecification(new QuizItemsForQuizIdFilledByUser(quizId, userId)).ToList();
+    }
+    
+    public async Task<IEnumerable<QuizItem>> FindAllQuizItemsAsync(int quizId)
+    {
+        var items = itemRepository.FindAll()
+            .Where(item => item.Id == quizId)
+            .OrderBy(item => item.Id);
+
+        return await Task.FromResult(items);
+    }
+    
+    public async Task<IEnumerable<Quiz>> FindAllAsync()
+    {
+        var quizzes = quizRepository.FindAll();
+        return await Task.FromResult(quizzes);
+    }
+
+    public IEnumerable<Quiz> findAllQuizzes()
+    {
+        return quizRepository.FindAll();
     }
 }

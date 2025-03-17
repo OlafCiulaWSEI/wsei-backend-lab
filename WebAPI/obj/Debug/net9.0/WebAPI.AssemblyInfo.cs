@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("ApplicationCore")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92ffdf14c310938571eb80a3fafac1671fb298a2")]
-[assembly: System.Reflection.AssemblyProductAttribute("ApplicationCore")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ApplicationCore")]
+[assembly: System.Reflection.AssemblyProductAttribute("WebAPI")]
+[assembly: System.Reflection.AssemblyTitleAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
