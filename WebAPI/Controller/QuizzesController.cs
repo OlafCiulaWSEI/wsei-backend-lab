@@ -45,21 +45,16 @@ public class QuizController : ControllerBase
         return NoContent(); // zwraca status HTTP 204, czyli poprawnie zapisano bez treści
     }
 
-    [HttpGet]
-    [Route("{quizId}/user/{userId}/result")]
-    public ActionResult<UserQuizResultDto> GetQuizResultForUser(int quizId, int userId)
-    {
-        var correctAnswersCount = _service.CountCorrectAnswersForQuizFilledByUser(quizId, userId);
-
-        var resultDto = new UserQuizResultDto
+        [HttpGet]
+        [Route("{quizId}/users/{userId}/result")]
+        public ActionResult<UserQuizResultDto> GetQuizResultForUser(int quizId, int userId)
         {
-            UserId = userId,
-            QuizId = quizId,
-            CorrectAnswersCount = correctAnswersCount
-        };
+            int correctAnswers = _service.CountCorrectAnswersForQuizFilledByUser(quizId, userId);
 
-        return Ok(resultDto);
-    }
+            var resultDto = new UserQuizResultDto(quizId, userId, correctAnswers);
+
+            return Ok(resultDto);
+        }
 
 
 }
