@@ -2,5 +2,54 @@
 
 GET {{WebAPI_HostAddress}}/api/v1/quizzes
 Accept: application/json
+###
+
+GET {{WebAPI_HostAddress}}/api/v1/quizzes/1
+Accept: application/json
+
+
+### Wrong id 
+GET {{WebAPI_HostAddress}}/api/v1/quizzes/10
+Accept: application/json
+
+### First answer - Good
+POST {{WebAPI_HostAddress}}/api/v1/quizzes/1/items/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "answer": "5"
+}
+
+
+### Second answer - Bad
+POST {{WebAPI_HostAddress}}/api/v1/quizzes/1/items/1
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "answer": "6"
+}
+
+### Result Check
+GET {{WebAPI_HostAddress}}/api/v1/quizzes/1/users/1/result
+Accept: application/json
 
 ###
+PATCH {{WebAPI_HostAddress}}/api/v1/admin/quizzes/1
+Content-Type: application/json-patch+json
+
+[
+  {
+    "op": "add",
+    "path": "/items/-",
+    "value": {
+      "question": "4*7",
+      "correctAnswer": "28",
+      "incorrectAnswers": ["26","27","29"]
+    }
+  }
+]
+
+###
+GET {{WebAPI_HostAddress}}/api/v1/admin/quizzes/1

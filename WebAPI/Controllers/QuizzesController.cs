@@ -3,7 +3,7 @@ using BackendLab01;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
 
-namespace WebAPI.Controller;
+namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/v1/quizzes")]
