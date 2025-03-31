@@ -3,14 +3,13 @@ using ApplicationCore.Models;
 using ApplicationCore.Models.QuizAggregate;
 using ApplicationCore.Specifications;
 
-namespace BackendLab01;
+namespace ApplicationCore.Interfaces.UserService;
 
 public class QuizUserService: IQuizUserService
 {
     private readonly IGenericRepository<Quiz, int> quizRepository;
     private readonly IGenericRepository<QuizItem, int> itemRepository;
     private readonly IGenericRepository<QuizItemUserAnswer, string> answerRepository;
-
 
     public QuizUserService(IGenericRepository<Quiz, int> quizRepository, IGenericRepository<QuizItemUserAnswer, string> answerRepository, IGenericRepository<QuizItem, int> itemRepository)
     {
@@ -39,29 +38,10 @@ public class QuizUserService: IQuizUserService
 
     public List<QuizItemUserAnswer> GetUserAnswersForQuiz(int quizId, int userId)
     {
-        // return answerRepository.FindAll()
-        //     .Where(x => x.QuizId == quizId)
-        //     .Where(x => x. UserId == userId)
-        //     .ToList();
         return answerRepository.FindBySpecification(new QuizItemsForQuizIdFilledByUser(quizId, userId)).ToList();
     }
-    
-    public async Task<IEnumerable<QuizItem>> FindAllQuizItemsAsync(int quizId)
-    {
-        var items = itemRepository.FindAll()
-            .Where(item => item.Id == quizId)
-            .OrderBy(item => item.Id);
 
-        return await Task.FromResult(items);
-    }
-    
-    public async Task<IEnumerable<Quiz>> FindAllAsync()
-    {
-        var quizzes = quizRepository.FindAll();
-        return await Task.FromResult(quizzes);
-    }
-
-    public IEnumerable<Quiz> findAllQuizzes()
+    public IEnumerable<Quiz> FindAllQuizzes()
     {
         return quizRepository.FindAll();
     }
